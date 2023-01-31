@@ -26,14 +26,14 @@ function CustomNavbar(probs) {
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
                     </ul>
-                    <form class="d-flex">
+                    {/* <form class="d-flex">
                     <Link to={`/`} >
                         <input className="form-control me-2" 
                       //  onChange={(e) => handleTitle(e)}
                         
                         type="search" placeholder="Search" aria-label="Search" />
                     </Link>
-                    </form>
+                    </form> */}
                 </div>
             </div>
         </nav>

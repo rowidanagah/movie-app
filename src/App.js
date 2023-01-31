@@ -8,6 +8,8 @@ import notFound from './pages/notFound';
 import RegisterForm from './pages/RegisterForm';
 import MovieDetails from './pages/MovieDetails';
 import Nav from './components/Nav';
+import { Pagination } from 'react-bootstrap';
+
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
           <Route exact path={"/register"} component={RegisterForm} />
           <Route exact path={"/MovieDetails/:id"} component={MovieDetails} />
           <Route exact path={"*"} component={notFound} />
+          <Pagination/>
         </Switch>
+
       </BrowserRouter>
     </div>
   );
