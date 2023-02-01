@@ -1,6 +1,6 @@
 
 const InitialValue ={
-    favLst: [16535, 86938, 597, 945657]
+    favLst: []
 }
 
 export default function FavListReduser(state = InitialValue, action ){

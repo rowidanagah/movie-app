@@ -38,7 +38,7 @@ function CustomNavbar(probs) {
                 <div className="collapse navbar-collapse float-right" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/fav">Favorites</Link>
+                            <Link className="nav-link" to="/favorites">Favorites</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">LogIn</Link>
@@ -50,9 +50,9 @@ function CustomNavbar(probs) {
                             <button onClick={changLang} className="btn btn-outline-info">{lang}</button>
                         </li>
 
-                        <li className="nav-item">
+                        <li className="nav-item m-1">
                             <i class="fa-solid fa-star"></i>
-                            {numberofFavs}
+                            {numberofFavs ? numberofFavs : ""}
                         </li>
                     </ul>
                     {/* <form class="d-flex">
