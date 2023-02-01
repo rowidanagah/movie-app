@@ -32,6 +32,7 @@ function MovieDetails(props) {
         <SingleCard
             title={movie.original_title}
             desc={movie.title}
+            id = {Cid}
             img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
         />
     )

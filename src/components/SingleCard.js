@@ -1,17 +1,37 @@
 
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { FavCountAction } from "../Store/actions/FavCountAction";
+import { FavList } from "../Store/actions/FavList";
+
 
 function SingleCard(props) {
-    console.log(props)
+
+    const favlst = useSelector(state => state.RfavLst.favLst)
+    const favcount = useSelector(state => state.RfavCount.count)
+    console.log(favlst)
+    console.log(favcount)
+    const dispatch = useDispatch()
+
+    const removeFav = () => {
+        dispatch(FavCountAction(favcount - 1));
+        dispatch(FavList(favlst.filter(ele => ele != props.id)));
+    }
+
     return (
         <div className="container  singleCard mt-3 " >
             <div class="card " >
+
                 <div className="bg-image  hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src={props.img} className="CardImg img-fluid" />
                     <a href="#!">
                         <div className="mask"
                         ></div>
+                        <button className="btn btn-outline"
+                            onClick={removeFav}
+                        ><i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
                     </a>
                 </div>
                 <div className="card-body">
