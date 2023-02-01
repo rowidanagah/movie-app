@@ -1,5 +1,5 @@
 const InitialValue ={
-    count: 4
+    count: 0
 }
 
 export default function FavCountReducer(state = InitialValue, action ){

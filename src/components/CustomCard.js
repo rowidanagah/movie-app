@@ -22,11 +22,12 @@ class CustomCard extends React.Component {
             width: "18rem"
         }
     }
-    addToFav(id) {
+    // day 4 
+    addToFav(movie) {
         console.log(this.props.favCount)
         console.log(this.props.favLst)
         const favs = this.props.favLst
-        this.props.FavList([...favs, id])
+        this.props.FavList([...favs, movie])
         this.props.FavCountAction(this.props.favCount+1)
 
 
@@ -54,7 +55,7 @@ class CustomCard extends React.Component {
                     <img className="card-img-top" src={this.props.img} alt="Card image cap" />
 
                     <button className="btn btn-outline"
-                        onClick={() => this.addToFav()}
+                        onClick={() => this.addToFav(this.props.movie)}
                     //</div>onClick={()=> this.props.FavIconAction(this.props.isFav == false ? true : false)}
                     ><i className="fa-solid fa-star"></i>
                     </button>

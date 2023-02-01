@@ -52,7 +52,7 @@ function Home() {
                         movies.map((movie) => {
                             return <CustomCard title={movie.original_title}
                                 desc={movie.title}
-                                id={movie.id}
+                                movie={movie}
                                 img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 moveto={movie.id}
                             />

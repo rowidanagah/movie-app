@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import SingleCard from "../components/SingleCard"
+import FavCard from "../components/FavCard"
 
 
 function MovieDetails(props) {
