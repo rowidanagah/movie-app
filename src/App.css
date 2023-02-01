@@ -1,8 +1,10 @@
 .App {
   text-align: center;
-  background-color: black;
 }
+.home{
+  background-color: black;
 
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
