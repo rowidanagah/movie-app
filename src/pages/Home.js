@@ -41,8 +41,6 @@ function Home() {
             .catch((error) => console.log(error))
     }, [lang, searchKey])
 
-    
-
     return (
         <div className="home">
             <Search onSearch={handleSearch} />
@@ -53,6 +51,7 @@ function Home() {
                             return <CustomCard title={movie.original_title}
                                 desc={movie.title}
                                 movie={movie}
+                                id={movie.id}
                                 img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 moveto={movie.id}
                             />

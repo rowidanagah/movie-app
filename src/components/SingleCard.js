@@ -10,13 +10,19 @@ function SingleCard(props) {
 
     const favlst = useSelector(state => state.RfavLst.favLst)
     const favcount = useSelector(state => state.RfavCount.count)
+
     console.log(favlst)
     console.log(favcount)
     const dispatch = useDispatch()
 
     const removeFav = () => {
         dispatch(FavCountAction(favcount - 1));
-        dispatch(FavList(favlst.filter(ele => ele != props.id)));
+        console.log(props.id)
+        console.log(favlst.filter(ele => ele.id != props.id))
+        const updatedFav = favlst.filter(ele => ele.id != props.id);
+        dispatch(FavList(updatedFav));
+        console.log(favlst)
+        console.log(FavList)
     }
 
     return (
