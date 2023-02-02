@@ -18,7 +18,7 @@ class CustomCard extends React.Component {
             return o.id == props.id;
         });
 
-        console.log(filtered_array.length, filtered_array, filtered_array==[])
+        console.log(filtered_array.length, filtered_array, filtered_array == [])
         this.state = {
             color: props.color ? props.color : " rgba(128, 128, 128, 0.958)",
             text: props.text ? props.text : "default title text",
@@ -78,24 +78,28 @@ class CustomCard extends React.Component {
     render() {
 
         return (
+
             <div className="col-lg-3 col-md-4 col-sm-2 ">
-                <div className="card m-1" style={{ width: this.state.width, backgroundColor: this.state.color }}>
-                    <img className="card-img-top" src={this.props.img} alt="Card image cap" />
 
-                    <button className="btn btn-outline"
-                        onClick={() => this.addToFav(this.props.movie)}
-                    //</div>onClick={()=> this.props.FavIconAction(this.props.isFav == false ? true : false)}
-                    ><i className={`iconStar fa-${this.state.isFav} fa-2x fa-star`}> </i>
-                    </button>
-
-                    <div className="card-body">
-                        <h5 className="card-title">{this.props.title}</h5>
-                        <p className="card-text">{this.props.desc}</p>
+                <div class="card">
+                    <div class="content">
+                        <div class="imgBx">
+                            <img className="card-img-top" src={this.props.img} alt="Card image cap" />
+                        </div>
+                        <div class="contentBx">
+                            <h3 className="card-title">{this.props.title}</h3>
+                        </div>
                     </div>
-                    <Link
-                        to={`/movieDetails/${this.props.moveto}`}>
-                        <CustomButton text="Show Details" />
-                    </Link>
+                    <ul class="sci">
+                        <li>
+                            <button className="btn btn-outline"
+                                onClick={() => this.addToFav(this.props.movie)}
+                            //</div>onClick={()=> this.props.FavIconAction(this.props.isFav == false ? true : false)}
+                            ><i className={`iconStar fa-${this.state.isFav} fa-3x fa-star`}> </i>
+                            </button>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         )
@@ -120,3 +124,26 @@ export default connect(mapStateToProps, { FavCountAction, FavList })(CustomCard)
 //export default connect(mapStateToProps, { FavIconAction })(CustomCard);
 
 //export default CustomCard;
+
+/* 
+
+<div className="col-lg-3 col-md-4 col-sm-2 ">
+<div className="card m-1" style={{ width: this.state.width, backgroundColor: this.state.color }}>
+    <img className="card-img-top" src={this.props.img} alt="Card image cap" />
+
+    <button className="btn btn-outline"
+        onClick={() => this.addToFav(this.props.movie)}
+    //</div>onClick={()=> this.props.FavIconAction(this.props.isFav == false ? true : false)}
+    ><i className={`iconStar fa-${this.state.isFav} fa-2x fa-star`}> </i>
+    </button>
+
+    <div className="card-body">
+        <h5 className="card-title">{this.props.title}</h5>
+        <p className="card-text">{this.props.desc}</p>
+    </div>
+    <Link
+        to={`/movieDetails/${this.props.moveto}`}>
+        <CustomButton text="Show Details" />
+    </Link>
+</div>
+</div> */

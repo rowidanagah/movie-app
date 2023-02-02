@@ -16,10 +16,10 @@ function FavCard(props) {
 
 
 
-    function removeFav () {
-       /*  dispatch(FavCountAction(favcount - 1));
-        dispatch(FavList(favlst.filter(ele => ele != props.id)));
-         */
+    function removeFav() {
+        /*  dispatch(FavCountAction(favcount - 1));
+         dispatch(FavList(favlst.filter(ele => ele != props.id)));
+          */
         dispatch(FavCountAction(favcount - 1));
         console.log(props)
         console.log(favlst.filter(ele => ele.id != props.id))
@@ -33,16 +33,39 @@ function FavCard(props) {
 
     return (
         <div className="col-lg-3 col-md-4 col-sm-2 ">
+
+            <div class="card">
+                <div class="content">
+                    <div class="imgBx">
+                        <img className="card-img-top" src={props.img} alt="Card image cap" />
+                    </div>
+                    <div class="contentBx">
+                        <h3 className="card-title">{props.title}</h3>
+                    </div>
+                </div>
+                <ul class="sci">
+                    <li>
+                        <button className="btn btn-outline"
+                            onClick={removeFav}
+                        ><i class="iconStar fa fa-3x fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+
+    )
+}
+
+
+export default FavCard;
+
+/* 
+<div className="col-lg-3 col-md-4 col-sm-2 ">
             <div className="card m-1" style={{ backgroundColor: props.color }}>
                 <img className="card-img-top" src={props.img} alt="Card image cap" />
-
-                {/* <button className="btn btn-outline"
-                        onClick={() => this.addToFav(props.movie)}
-                    //</div>onClick={()=> this.props.FavIconAction(this.props.isFav == false ? true : false)}
-                    ><i className="fa-solid fa-star"></i>
-                    </button> */}
-
-
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text">{props.desc}</p>
@@ -51,10 +74,5 @@ function FavCard(props) {
                     ><i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 </div>
-
             </div>
-        </div>
-    )
-}
-
-export default FavCard;
+        </div> */
