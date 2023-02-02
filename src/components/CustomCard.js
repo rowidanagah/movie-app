@@ -15,18 +15,26 @@ class CustomCard extends React.Component {
 
         super();
         console.log(props.count)
-        console.log(props.FavList)
+        console.log(props.favLst)
         this.state = {
             color: props.color ? props.color : " rgba(128, 128, 128, 0.958)",
             text: props.text ? props.text : "default title text",
-            width: "18rem"
+            width: "18rem",
+            isFav : props.favLst.filter(ele => ele != this.props.id) != [] ? false : true
         }
+        console.log(this.state.isFav)
     }
     // day 4 
     addToFav(movie) {
+        console.log(this.state.isFav)
         console.log(this.props.favCount)
         console.log(this.props.favLst)
+
         const favs = this.props.favLst
+        //this.state.isFav = favs.filter(mv => mv != this.props.id) == [] ? false : true;
+        this.state.isFav = this.state.isFav == false ? true : false
+
+        console.log(this.state.isFav)
         this.props.FavList([...favs, movie])
         this.props.FavCountAction(this.props.favCount+1)
 
