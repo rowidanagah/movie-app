@@ -2,27 +2,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CustomButton from "./CutomButton";
-
+import { filter } from "lodash";
 import movieDetails from "../pages/MovieDetails";
 import { connect } from "react-redux";
-
 import { FavCountAction } from "../Store/actions/FavCountAction";
 import { FavList } from "../Store/actions/FavList";
+import { ProgressBar } from "react-bootstrap";
 
 class CustomCard extends React.Component {
 
     constructor(props) {
-
         super();
-        console.log(props.count)
-        console.log(props.favLst)
+        const _ = require("lodash");
+        let filtered_array = _.filter(props.favLst, function (o) {
+            return o.id == props.id;
+        });
+
+        console.log(filtered_array.length, filtered_array, filtered_array==[])
         this.state = {
             color: props.color ? props.color : " rgba(128, 128, 128, 0.958)",
             text: props.text ? props.text : "default title text",
             width: "18rem",
-            isFav : props.favLst.filter(ele => ele != this.props.id) != [] ? false : true
+            isFav: filtered_array.length > 0 ? "solid" : "regular",
+            //isFav : props.favLst.filter(ele => ele != this.props.id) != [] ? "regular" : "solid"
         }
-        console.log(this.state.isFav)
+
+
+        //console.log(props.favLst)
+        // console.log(props.favLst.filter((ele) => ele.id == props.id))
+
+
+        /* console.log(this.state.isFav)
+        console.log(filtered_array == [])
+        console.log(_.filter(props.favLst, function (o) {
+            return o.id !== props.id;
+        }) != []) */
     }
     // day 4 
     addToFav(movie) {
@@ -32,14 +46,20 @@ class CustomCard extends React.Component {
 
         const favs = this.props.favLst
         //this.state.isFav = favs.filter(mv => mv != this.props.id) == [] ? false : true;
-        this.state.isFav = this.state.isFav == false ? true : false
-
+        //change color of icon
         console.log(this.state.isFav)
-        this.props.FavList([...favs, movie])
-        this.props.FavCountAction(this.props.favCount+1)
+        //this.props.FavList([...favs, movie])
+        //tmp = this.state.isFav == "regular"?  [...favs, movie] : favs.filter(mv => mv.id !=  this.props.id)
+
+        this.props.FavList(this.state.isFav == "regular" ? [...favs, movie] : favs.filter(mv => mv.id != this.props.id)
+        )
+
+        this.props.FavCountAction(this.state.isFav == "regular" ? this.props.favCount + 1 : this.props.favCount - 1)
+        this.state.isFav = this.state.isFav == "regular" ? "solid" : "regular"
 
 
         console.log(this.props.favCount)
+        console.log(this.state.isFav)
         console.log(this.props.favLst.length)
     }
 
@@ -65,9 +85,8 @@ class CustomCard extends React.Component {
                     <button className="btn btn-outline"
                         onClick={() => this.addToFav(this.props.movie)}
                     //</div>onClick={()=> this.props.FavIconAction(this.props.isFav == false ? true : false)}
-                    ><i className="fa-solid fa-star"></i>
+                    ><i className={`iconStar fa-${this.state.isFav} fa-2x fa-star`}> </i>
                     </button>
-
 
                     <div className="card-body">
                         <h5 className="card-title">{this.props.title}</h5>
@@ -86,8 +105,8 @@ class CustomCard extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    console.log(state.RfavCount.count)
-    console.log(state.RfavLst.favLst)
+    // console.log(state.RfavCount.count)
+    // console.log(state.RfavLst.favLst)
     return {
         favCount: state.RfavCount.count,
         favLst: state.RfavLst.favLst

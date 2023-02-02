@@ -41,8 +41,6 @@ function Home() {
             .catch((error) => console.log(error))
     }, [lang, searchKey])
 
-    
-
     return (
         <div className="home">
             <Search onSearch={handleSearch} />
