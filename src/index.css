@@ -1,7 +1,4 @@
 
-
-
-
  .card {
 	position: relative;
 	width: 300px;
@@ -45,12 +42,25 @@
 	object-fit: cover;
 }
 
- .card .content .contentBx h3 {
+ .card .content .contentBx h3, .cardTitle {
 	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-weight: 500;
 	font-size: 18px;
+	text-align: center;
+	margin: 20px 0 10px;
+	line-height: 1.1em;
+}
+
+.mvlogo{
+	border-radius: 50%;
+}
+.card .content .contentBx p, .overview {
+	color:rgb(110, 5, 110);
+	letter-spacing: 2px;
+	font-weight: 500;
+	font-size: 14px;
 	text-align: center;
 	margin: 20px 0 10px;
 	line-height: 1.1em;
@@ -62,6 +72,10 @@
 	text-transform: initial;
 }
 
+.singleCard {
+	width: 900px;
+	left: 10%;
+}
  .card .sci {
 	position: absolute;
 	bottom: 190px;

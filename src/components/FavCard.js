@@ -50,7 +50,6 @@ function FavCard(props) {
                         ><i class="iconStar fa fa-3x fa-trash" aria-hidden="true"></i>
                         </button>
                     </li>
-
                 </ul>
             </div>
         </div>

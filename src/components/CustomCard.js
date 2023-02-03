@@ -88,6 +88,12 @@ class CustomCard extends React.Component {
                         </div>
                         <div class="contentBx">
                             <h3 className="card-title">{this.props.title}</h3>
+                            <p className="card-text">{this.props.desc}</p>
+
+                            <Link
+                                to={`/movieDetails/${this.props.moveto}`}>
+                                <CustomButton text="Show Details" />
+                            </Link>
                         </div>
                     </div>
                     <ul class="sci">

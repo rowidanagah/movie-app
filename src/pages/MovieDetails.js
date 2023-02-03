@@ -34,6 +34,8 @@ function MovieDetails(props) {
             title={movie.original_title}
             desc={movie.title}
             id = {Cid}
+            overview ={movie.overview}
+            rate ={movie.vote_average}
             img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
         />
     )
