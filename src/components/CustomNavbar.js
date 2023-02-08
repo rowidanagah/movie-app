@@ -29,7 +29,9 @@ function CustomNavbar(probs) {
     return (
         <nav className="navbar navbar-expand-lg bg-light ">
             <div className="container-fluid">
-                <Link className="navbar-brand" aria-current="page" to="/">Movies</Link>
+                <Link className="navbar-brand" aria-current="page" to="/">
+                <img src="https://i.pinimg.com/736x/25/67/42/256742663981884e227ccbcf123320bf.jpg" width="50" height="50" class="d-inline-block  mvlogo" alt=""/>                    movie
+                        </Link>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

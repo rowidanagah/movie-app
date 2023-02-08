@@ -11,7 +11,7 @@ function Home() {
     const [title, setTitle] = useState("");
     const params = useParams();
     const filterKey = params.filterKey;
-    const url = "https://api.themoviedb.org/3/movie/popular"
+    const url = "https://api.themoviedb.org/3/search/movie"
 
     const lang = useSelector(store=> store.Rlang.lang);
     console.log(lang)
@@ -20,7 +20,7 @@ function Home() {
 
     // Search -> ..
 
-    const [searchKey, SetSearchKey] = useState("titanic");
+    const [searchKey, SetSearchKey] = useState("avatar");
     // A
     const handleSearch = (e) => {
         // C
